@@ -11,4 +11,7 @@ unzip terraform_0.12.20_linux_amd64.zip
 sudo mv terraform /usr/local/bin
 cd
 terraform --version
-
+terraform init
+echo "Waiting for F5 BIG-IP to be ready ......"
+sleep 50
+echo "F5 BIG-IP is  ready"
