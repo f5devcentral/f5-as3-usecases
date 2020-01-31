@@ -1,8 +1,4 @@
 #!/usr/bin/env bash
-sudo apt update
-sudo apt install jq
-set -e
-sudo apt-get install unzip
 cd ..
 mv terraform.tfvars ~/f5-as3-usecases
 cd /tmp
