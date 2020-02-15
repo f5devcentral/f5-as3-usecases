@@ -1,0 +1,52 @@
+{
+  "class": "ADC",
+  "schemaVersion": "3.2.0",
+  "id": "5489432",
+  "label": "ASM_policy_external_URL",
+  "remark": "ASM_policy_external_URL",
+  "Sample_app_sec_02": {
+    "class": "Tenant",
+    "HTTP_Service": {
+      "class": "Application",
+      "template": "http",
+      "serviceMain": {
+        "class": "Service_HTTP",
+        "virtualPort": 8080,
+        "virtualAddresses": [
+          "10.0.0.200"
+        ],
+        "snat": "auto",
+        "pool": "Pool1",
+        "policyWAF": {
+          "use": "My_ASM_Policy"
+        }
+      },
+      "Pool1": {
+        "class": "Pool",
+        "monitors": [
+          "http"
+        ],
+        "members": [
+          {
+            "servicePort": 80,
+            "serverAddresses": [
+              "10.0.0.172"
+            ]
+          },
+          {
+            "servicePort": 80,
+            "serverAddresses": [
+              "10.0.0.173"
+            ]
+          }
+        ]
+      },
+      "My_ASM_Policy": {
+        "class": "WAF_Policy",
+        "url": "https:https://raw.githubusercontent.com/scshitole/more-terraform/master/Common-test-policy.xml",
+        "ignoreChanges": true
+      }
+    }
+  }
+}
+
