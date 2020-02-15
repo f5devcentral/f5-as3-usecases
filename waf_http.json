@@ -43,7 +43,7 @@
       },
       "My_ASM_Policy": {
         "class": "WAF_Policy",
-        "url": "https:https://raw.githubusercontent.com/scshitole/more-terraform/master/Common-test-policy.xml",
+        "url": "https://raw.githubusercontent.com/scshitole/more-terraform/master/Common-test-policy.xml",
         "ignoreChanges": true
       }
     }
